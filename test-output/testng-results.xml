@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-02-12T03:32:08 IST" name="Suite" finished-at="2024-02-12T03:34:06 IST" duration-ms="118613">
+    <groups>
+    </groups>
+    <test started-at="2024-02-12T03:32:08 IST" name="Test" finished-at="2024-02-12T03:34:06 IST" duration-ms="118613">
+      <class name="VishLimited.orangeHRM.HRAdministrationPageModel">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:VishLimited.orangeHRM.HRAdministrationPageModel@7f3b84b8]" started-at="2024-02-12T03:32:08 IST" name="launchApp" finished-at="2024-02-12T03:32:24 IST" duration-ms="16598" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="main()[pri:0, instance:VishLimited.orangeHRM.HRAdministrationPageModel@7f3b84b8]" started-at="2024-02-12T03:32:24 IST" name="main" finished-at="2024-02-12T03:34:06 IST" duration-ms="101969" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- main -->
+      </class> <!-- VishLimited.orangeHRM.HRAdministrationPageModel -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,4 +1,4 @@
-package VishLimited.OrangeHRM;
+package VishLimited.orangeHRM;
 
 import java.time.Duration;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class StandAloneTest {
+public class HRAdministrationStandAloneTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -152,6 +152,8 @@ public class StandAloneTest {
 		toastMessage = driver.findElement(By.className("toast-message")).getText();
 		Assert.assertEquals(toastMessage, "Successfully Deleted");
 		System.out.println(toastMessage);
+		
+		// driver.quit();
 
 	}
 
