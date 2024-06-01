@@ -5,7 +5,7 @@
     <classes>
       <class name="VishLimited.orangeHRM.HRAdministrationPageModel">
         <methods>
-          <include name="main" invocation-numbers="0"/>
+          <include name="main" invocation-numbers="0 1"/>
           <include name="launchApp"/>
         </methods>
       </class> <!-- VishLimited.orangeHRM.HRAdministrationPageModel -->

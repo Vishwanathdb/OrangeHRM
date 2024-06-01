@@ -1,5 +1,6 @@
 package VishLimited.testComponent;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -16,6 +17,7 @@ public class Listener extends BaseTest implements ITestListener {
 
 	ExtentReports extent = ExtentReporter.getReportObject();
 	ExtentTest test;
+	static int count = 0;
 	
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	
@@ -38,9 +40,25 @@ public class Listener extends BaseTest implements ITestListener {
 		ITestListener.super.onTestFailure(result);
 		
 		extentTest.get().log(Status.FAIL, "Test Failed");
+		extentTest.get().fail(result.getThrowable());
+		
+//		String filePath = null;
+//		try {
+//			WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
+//			WebDriver driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+//			filePath = getScreenShot(driver, result.getMethod().getMethodName());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		extentTest.get().fail(result.getThrowable());
+//		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+		
+		
 		String filePath = null;
 		try {
-			filePath = getScreenShot(result.getMethod().getMethodName());
+			WebDriver driver = ((BaseTest)result.getInstance()).driver;
+//			System.out.println(driver);
+			filePath = getScreenShot(driver, result.getMethod().getMethodName()+count++);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -76,3 +94,7 @@ public class Listener extends BaseTest implements ITestListener {
 	}
 
 }
+//
+//<listeners>
+//<listener class-name="VishLimited.testComponent.Listener"></listener>
+//</listeners>

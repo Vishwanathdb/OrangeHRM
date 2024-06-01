@@ -64,7 +64,8 @@ public class CreateHRAdmin {
 
 		Thread.sleep(5000);
 		// Select Employee Name
-		employeeNameField.sendKeys("aa");
+		//employeeNameField.sendKeys("aa");
+		employeeNameField.sendKeys("bb");
 
 		Thread.sleep(5000);
 
@@ -75,7 +76,8 @@ public class CreateHRAdmin {
 		}
 
 		// Add User Name
-		userName.sendKeys("Aaron");
+		//userName.sendKeys("Aaron");
+		userName.sendKeys(employeeToAdd);
 
 		// Select ESS Role
 		essRole.click();

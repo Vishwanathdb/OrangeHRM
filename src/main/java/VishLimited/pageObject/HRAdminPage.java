@@ -33,7 +33,7 @@ public class HRAdminPage {
 		// Select HR Module
 		hrModule.click();
 
-		Thread.sleep(9000);
+		Thread.sleep(12000);
 
 		// Fetch Username and Print atleast 10 Username
 		System.out.println(userList.size());

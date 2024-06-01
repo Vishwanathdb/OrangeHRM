@@ -16,8 +16,12 @@ public class HRAdministrationStandAloneTest {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
-		String url = "https://vishwanathdb-trials711.orangehrmlive.com/";
-		String userName = "Admin", password = "OYs6MbnC2@";
+//		String url = "https://vishwanathdb-trials711.orangehrmlive.com/";
+		String url = "https://vishdb-trials712.orangehrmlive.com";
+		
+//		String userName = "Admin", password = "OYs6MbnC2@";
+		String userName = "Admin", password = "iVLq@23JjQ";
+		
 		String employeeToAdd = "Aaron";
 		String toastMessage = "";
 

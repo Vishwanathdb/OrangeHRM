@@ -26,8 +26,10 @@ public class BaseTest {
 
 	void initializer() throws IOException {
 		
-		String url = "https://vishwanathdb-trials711.orangehrmlive.com/";
-
+//		String url = "https://vishwanathdb-trials711.orangehrmlive.com/";
+		String url = "https://vishdb-trials712.orangehrmlive.com";
+		
+		
 //		Check the browser assigned in GolbalData.properties files
 		
 		Properties properties = new Properties();
@@ -62,7 +64,7 @@ public class BaseTest {
 		login = new Login(driver);
 	}
 	
-	public String getScreenShot(String methodName) throws IOException {
+	public String getScreenShot(WebDriver driver, String methodName) throws IOException {
 		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		File Dest = new File(System.getProperty("user.dir") + "\\reports\\"+methodName);
 		FileUtils.copyFile(file, Dest);

@@ -1,5 +1,7 @@
 package VishLimited.pageObject;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,8 +20,8 @@ public class EditHRAdmin {
 		PageFactory.initElements(this.driver, this);
 	}
 	
-	@FindBy(xpath = "//tbody //tr[1] //td[8]")
-	WebElement editButton;
+//	@FindBy(xpath = "//tbody //tr[1] //td[8]")
+//	WebElement editButton;
 	
 	@FindBy(id = "user_name")
 	WebElement userName;
@@ -31,16 +33,33 @@ public class EditHRAdmin {
 	{
 		Thread.sleep(3000);
 		// Click on Edit Button
-		editButton.click();
+//		editButton.click();
 
-		// Update User Name
-		userName.click();
-		userName.sendKeys(Keys.CONTROL + "a");
-		userName.sendKeys(newUserName);
-
-		Thread.sleep(3000);
-		// Update the Employee in HR Administration
-		saveButton.click();
+		List<WebElement> usernames = driver.findElements(By.xpath("//div[@id='systemUserDiv'] //tr"));
+		
+		
+		for(int i=0; i<usernames.size(); i++)
+		{
+//			System.out.println(i+ " "+usernames.get(i));
+			WebElement user = usernames.get(i).findElement(By.xpath("//td[2]"));
+//			System.out.println(user.getText());
+			if(user.getText().contains("Tabby"))
+			{
+				// Update User Name
+				
+				WebElement editButton = usernames.get(i).findElement(By.xpath("//td[8]"));
+				editButton.click();
+				userName.click();
+				userName.sendKeys(Keys.CONTROL + "a");
+				userName.sendKeys(newUserName);
+		
+				Thread.sleep(3000);
+				// Update the Employee in HR Administration
+				saveButton.click();
+				System.out.println("Inside If");
+				break;
+			}
+		}
 
 		Thread.sleep(2000);
 		// Get Toast Message
