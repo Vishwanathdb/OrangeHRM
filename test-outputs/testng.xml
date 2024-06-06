@@ -4,7 +4,7 @@
 <listeners>
 	<listener class-name="VishLimited.testComponent.Listener"></listener>
 </listeners>
-  <test thread-count="5" name="testng2">
+  <test thread-count="5" name="Test 1">
     <classes>
       <class name="VishLimited.orangeHRM.HRAdministrationPageModel"/>
     </classes>

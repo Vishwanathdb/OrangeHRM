@@ -18,11 +18,11 @@ public class HRAdministrationStandAloneTest {
 
 //		String url = "https://vishwanathdb-trials711.orangehrmlive.com/";
 		String url = "https://vishdb-trials712.orangehrmlive.com";
-		
+
 //		String userName = "Admin", password = "OYs6MbnC2@";
 		String userName = "Admin", password = "iVLq@23JjQ";
-		
-		String employeeToAdd = "Aaron";
+
+		String employeeToAdd = "Tabby";
 		String toastMessage = "";
 
 		// Creating WebDriver Object
@@ -73,7 +73,7 @@ public class HRAdministrationStandAloneTest {
 
 		Thread.sleep(5000);
 		// Select Employee Name
-		driver.findElement(By.id("selectedEmployee_value")).sendKeys("aa");
+		driver.findElement(By.id("selectedEmployee_value")).sendKeys("bb");
 		Thread.sleep(5000);
 		List<WebElement> employeeName = driver.findElements(By.cssSelector(".angucomplete-wrapper .angucomplete-row"));
 		for (int i = 0; i < employeeName.size(); i++) {
@@ -83,7 +83,7 @@ public class HRAdministrationStandAloneTest {
 		}
 
 		// Add User Name
-		driver.findElement(By.id("user_name")).sendKeys("Aaron");
+		driver.findElement(By.id("user_name")).sendKeys("Tabby");
 
 		// Select ESS Role
 		WebElement essRole = driver.findElement(By
@@ -125,17 +125,40 @@ public class HRAdministrationStandAloneTest {
 		System.out.println(toastMessage);
 
 		Thread.sleep(3000);
-		// Click on Edit Button
-		driver.findElement(By.xpath("//tbody //tr[1] //td[8]")).click();
+//		// Click on Edit Button
+//		driver.findElement(By.xpath("//tbody //tr[1] //td[8]")).click();
+//
+//		// Update User Name
+//		driver.findElement(By.id("user_name")).click();
+//		driver.findElement(By.id("user_name")).sendKeys(Keys.CONTROL + "a");
+//		driver.findElement(By.id("user_name")).sendKeys("Aaron Updated");
+//
+//		Thread.sleep(3000);
+//		// Update the Employee in HR Administration
+//		driver.findElement(By.id("modal-save-button")).click();
 
-		// Update User Name
-		driver.findElement(By.id("user_name")).click();
-		driver.findElement(By.id("user_name")).sendKeys(Keys.CONTROL + "a");
-		driver.findElement(By.id("user_name")).sendKeys("Aaron Updated");
+		List<WebElement> usernames = driver.findElements(By.xpath("//div[@id='systemUserDiv'] //tr"));
 
-		Thread.sleep(3000);
-		// Update the Employee in HR Administration
-		driver.findElement(By.id("modal-save-button")).click();
+		for (int i = 0; i < usernames.size(); i++) {
+//			System.out.println(i+ " "+usernames.get(i));
+			WebElement user = usernames.get(i).findElement(By.xpath("//td[2]"));
+//			System.out.println(user.getText());
+			if (user.getText().contains("Tabby")) {
+				// Update User Name
+
+				WebElement editButton = usernames.get(i).findElement(By.xpath("//td[8]"));
+				editButton.click();
+				driver.findElement(By.id("user_name")).click();
+				driver.findElement(By.id("user_name")).sendKeys(Keys.CONTROL + "a");
+				driver.findElement(By.id("user_name")).sendKeys("Tabby Updated");
+
+				Thread.sleep(3000);
+				// Update the Employee in HR Administration
+				driver.findElement(By.id("modal-save-button")).click();
+				System.out.println("Inside If");
+				break;
+			}
+		}
 
 		Thread.sleep(2000);
 		// Get Toast Message
@@ -156,7 +179,7 @@ public class HRAdministrationStandAloneTest {
 		toastMessage = driver.findElement(By.className("toast-message")).getText();
 		Assert.assertEquals(toastMessage, "Successfully Deleted");
 		System.out.println(toastMessage);
-		
+
 		// driver.quit();
 
 	}

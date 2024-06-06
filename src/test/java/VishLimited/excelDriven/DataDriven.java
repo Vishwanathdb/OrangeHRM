@@ -26,6 +26,8 @@ public class DataDriven {
 
 		// Create excel object
 		XSSFWorkbook workBook = new XSSFWorkbook(fis);
+		
+		String fileName = System.getProperty("fileName") == null ? "credentials" : System.getProperty("fileName");
 
 		ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
 
@@ -36,7 +38,7 @@ public class DataDriven {
 		for (int i = 0; i < numberOfSheets; i++) {
 
 			// Access sheet with name "credentials"
-			if (workBook.getSheetName(i).equals("credentials")) {
+			if (workBook.getSheetName(i).equals(fileName)) {
 
 				// Create sheet object
 				XSSFSheet sheet = workBook.getSheetAt(i);
