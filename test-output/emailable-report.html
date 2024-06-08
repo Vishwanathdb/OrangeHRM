@@ -9,10 +9,37 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">testng2</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">135,941</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test 1</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">120,126</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">testng2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">VishLimited.orangeHRM.HRAdministrationPageModel</td><td><a href="#m0">main</a></td><td rowspan="1">1717696368290</td><td rowspan="1">131653</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test 1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">VishLimited.orangeHRM.HRAdministrationPageModel</td><td><a href="#m0">main</a></td><td rowspan="1">1717848910737</td><td rowspan="1">7160</td></tr><tr><th colspan="4">Test 1 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">VishLimited.orangeHRM.HRAdministrationPageModel</td><td><a href="#m1">main</a></td><td rowspan="1">1717848810798</td><td rowspan="1">88476</td></tr></tbody>
 </table>
-<h2>testng2</h2><h3 id="m0">VishLimited.orangeHRM.HRAdministrationPageModel#main</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>Admin</td><td>iVLq@23JjQ</td><td>Tabby</td><td>TabbyUpdate</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test 1</h2><h3 id="m0">VishLimited.orangeHRM.HRAdministrationPageModel#main</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>Vish</td><td>free@123</td><td>Fun</td><td>Joy</td></tr><tr><th colspan="4">Exception</th></tr><tr><td colspan="4"><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@id=&apos;menu-content&apos;] //span[text()=&apos;HR Administration&apos;]&quot;}
+  (Session info: chrome=125.0.6422.142)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d261abbf6d243fc69beba5b83bb594da, findElement {using=xpath, value=//div[@id=&apos;menu-content&apos;] //span[text()=&apos;HR Administration&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 125.0.6422.142, chrome: {chromedriverVersion: 125.0.6422.141 (4b1e8393712..., userDataDir: C:\Users\vishw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52306}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52306/devtoo..., se:cdpVersion: 125.0.6422.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d261abbf6d243fc69beba5b83bb594da
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+	at VishLimited.pageObject.HRAdminPage.mainHRAdminPage(HRAdminPage.java:34)
+	at VishLimited.orangeHRM.HRAdministrationPageModel.main(HRAdministrationPageModel.java:23)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">VishLimited.orangeHRM.HRAdministrationPageModel#main</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>Admin</td><td>iVLq@23JjQ</td><td>Tabby</td><td>TabbyUpdate</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

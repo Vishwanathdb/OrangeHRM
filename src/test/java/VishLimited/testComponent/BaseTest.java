@@ -2,7 +2,6 @@ package VishLimited.testComponent;
 
 import org.testng.annotations.BeforeMethod;
 
-
 import VishLimited.pageObject.Login;
 
 import java.io.File;
@@ -14,8 +13,11 @@ import java.util.Properties;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -25,29 +27,51 @@ public class BaseTest {
 	protected Login login;
 
 	void initializer() throws IOException {
-		
+
 //		String url = "https://vishwanathdb-trials711.orangehrmlive.com/";
 		String url = "https://vishdb-trials712.orangehrmlive.com";
-		
-		
+
 //		Check the browser assigned in GolbalData.properties files
-		
+
 		Properties properties = new Properties();
 		FileInputStream fis = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\main\\java\\VishLimited\\resources\\GlobalData.properties");
 
 		properties.load(fis);
 
-//		String browser = System.getProperty("browser")!=null? System.getProperty("browser"): properties.getProperty("browser");
+		String browser = System.getProperty("browser") != null ? System.getProperty("browser")
+				: properties.getProperty("browser");
 
-		String browser = properties.getProperty("browser") != null ? properties.getProperty("browser") : "chrome";
+//		String browser = properties.getProperty("browser") != null ? properties.getProperty("browser") : "chrome";
 
-		if (browser.equalsIgnoreCase("chrome"))
-			driver = new ChromeDriver();
-		else if (browser.equalsIgnoreCase("edge"))
-			driver = new EdgeDriver();
-		else
-			driver = new FirefoxDriver();
+		if (browser.equalsIgnoreCase("chrome")) {
+			boolean headless = System.getProperty("headless").equalsIgnoreCase("true");
+			if (headless) {
+				ChromeOptions option = new ChromeOptions();
+				option.addArguments("headless");
+				driver = new ChromeDriver(option);
+			} else {
+				driver = new ChromeDriver();
+			}
+		} else if (browser.equalsIgnoreCase("edge")) {
+			boolean headless = System.getProperty("headless").equalsIgnoreCase("true");
+			if (headless) {
+				EdgeOptions option = new EdgeOptions();
+				option.addArguments("headless");
+				driver = new EdgeDriver(option);
+			} else {
+				driver = new EdgeDriver();
+			}
+		} else {
+			boolean headless = System.getProperty("headless").equalsIgnoreCase("true");
+			if (headless) {
+				FirefoxOptions option = new FirefoxOptions();
+				option.addArguments("headless");
+				driver = new FirefoxDriver(option);
+			} else {
+				driver = new FirefoxDriver();
+			}
+		}
 
 // 		Set Implicit Wait of 3 Sec and Maximize Window Size
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -63,12 +87,12 @@ public class BaseTest {
 		initializer();
 		login = new Login(driver);
 	}
-	
+
 	public String getScreenShot(WebDriver driver, String methodName) throws IOException {
-		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File Dest = new File(System.getProperty("user.dir") + "\\reports\\"+methodName);
+		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File Dest = new File(System.getProperty("user.dir") + "\\reports\\" + methodName);
 		FileUtils.copyFile(file, Dest);
-		
-		return System.getProperty("user.dir") + "\\reports\\"+methodName;
+
+		return System.getProperty("user.dir") + "\\reports\\" + methodName;
 	}
 }
